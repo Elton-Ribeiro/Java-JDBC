@@ -1,4 +1,4 @@
-package mode.entities;
+package model.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -12,31 +12,26 @@ public class Department implements Serializable{
 	// CONSTRUTOR
 	public Department() {}
 	
-
 	public Department(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}
-
 
 	
 	// GETTERS & SETTERS
 	public Integer getId() {
 		return id;
 	}
-
-
+	
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
 
-
 	public String getName() {
 		return name;
 	}
-
 
 
 	public void setName(String name) {
@@ -48,7 +43,6 @@ public class Department implements Serializable{
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -62,11 +56,9 @@ public class Department implements Serializable{
 		return Objects.equals(id, other.id);
 	}
 
-
 	@Override
 	public String toString() {
 		return "Department [id=" + id + ", name=" + name + "]";
 	}
-
 
 }
