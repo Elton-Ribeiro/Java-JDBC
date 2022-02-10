@@ -35,18 +35,23 @@ public class Program {
 			System.out.println(obj);
 		}
 		
-		System.out.println("\n=== TESTE 4 - SELLER FIND BY ALL ===");
-		Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
-		sellerDao.insert(newSeller);
-		System.out.println("Inserted! New id = " + newSeller.getId());
+//		System.out.println("\n=== TESTE 4 - INSERT NEW SELLER ===");
+//		Seller newSeller = new Seller(null, "Rick Sanchez", "sanchez@email.com", new Date(), 500.0, department);
+//		sellerDao.insert(newSeller);
+//		System.out.println("Inserted! New id = " + newSeller.getId());
+//		
+//		System.out.println("\n=== TESTE 5 - SELLER UPDATE ===");
+//		seller = sellerDao.findById(1);
+//		seller.setName("Bobby Brown");
+//		seller.setEmail("500dol@email.com");
+//		sellerDao.update(seller);
+//		System.out.println("UPDATE COMPLETED");
 		
-		System.out.println("\n=== TESTE 5 - SELLER UPDATE ===");
-		seller = sellerDao.findById(1);
-		seller.setName("Martha Waine");
-		sellerDao.update(seller);
-		System.out.println("UPDATE COMPLETED");
-		
-
+		System.out.println("\n=== TESTE 6 - SELLER DELETE ===");
+		seller = sellerDao.findById(15);
+		System.out.println(seller);
+		sellerDao.deleteById(15);
+		System.out.println("DELETE COMPLETED");
 	}
 
 }

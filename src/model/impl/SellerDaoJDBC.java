@@ -30,7 +30,7 @@ public class SellerDaoJDBC implements SellerDao {
 		PreparedStatement st = null;
 		try {
 			st = conn.prepareStatement(
-					"INSERT INTO seller"
+					"INSERT INTO seller "
 					+ "(Name, Email, BirthDate, BaseSalary, DepartmentId) "
 					+ "VALUES "
 					+ "(?,?,?,?,?)",
@@ -91,9 +91,23 @@ public class SellerDaoJDBC implements SellerDao {
 	}
 
 	@Override
-	public void deleteById(Integer obj) {
-		// TODO Auto-generated method stub
-		
+	public void deleteById(Integer id) {
+		PreparedStatement st = null;
+		try {
+			st = conn.prepareStatement("DELETE FROM seller WHERE Id = ? ");
+			st.setInt(1, id);
+			//NÃO AVISA SE A LINHA DELETADA NÃO EXISTE.
+			//st.executeUpdate();
+			
+			//AVISA SE A LINHA DELETADA NÃO EXISTE.
+			int rows = st.executeUpdate(); 
+			if (rows == 0) {
+				throw new Exception("ID DON'T EXIST");
+			//
+			}			
+		}catch (Exception e) {
+			throw new DbException(e.getMessage());			
+		}					
 	}
 
 	@Override
@@ -183,7 +197,6 @@ public class SellerDaoJDBC implements SellerDao {
 		}
 	}
 
-
 	@Override
 	public List<Seller> findByDepartment(Department department) {
 		PreparedStatement st = null;
@@ -221,5 +234,4 @@ public class SellerDaoJDBC implements SellerDao {
 			DB.closeResultSet(rs);
 		}
 	}
-
 }
