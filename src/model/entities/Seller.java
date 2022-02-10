@@ -17,9 +17,7 @@ public class Seller implements Serializable {
 	private Department department;
 		
 	//CONSTRUTOR
-	public Seller() {
-		
-	}
+	public Seller() {}
 	
 	public Seller(Integer id, String name, String email, Date birthDate, Double baseSalary, Department department) {
 		this.id = id;
@@ -108,7 +106,5 @@ public class Seller implements Serializable {
 		return "Seller [id=" + id + ", name=" + name + ", email=" + email + ", birthDate=" + birthDate + ", baseSalary="
 				+ baseSalary + ", department=" + department + "]";
 	}
-	
-	
 	
 }
